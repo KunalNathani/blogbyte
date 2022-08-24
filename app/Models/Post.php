@@ -19,4 +19,20 @@ class Post extends Model
         'image',
         'published_at'
     ];
+
+    /** RELATIONSHIP METHODS */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class)->withTimestamps();
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

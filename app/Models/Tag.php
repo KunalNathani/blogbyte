@@ -12,4 +12,10 @@ class Tag extends Model
     protected $fillable = [
         'name'
     ];
+
+    /** RELATIONSHIP METHODS */
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class)->withTimestamps();
+    }
 }
