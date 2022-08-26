@@ -20,6 +20,12 @@ class Post extends Model
         'published_at'
     ];
 
+//    Here are two ways to get published_at in Date object as they are stored as string in DBMS
+//    protected $dates = ['published_at']; OR protected $casts = ['published_at' => 'datetime'];
+    protected $casts = [
+        'published_at' => 'datetime'
+    ];
+
     /** RELATIONSHIP METHODS */
     public function tags()
     {
