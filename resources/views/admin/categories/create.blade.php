@@ -8,10 +8,11 @@
                     <h6 class="m-0 font-weight-bold text-primary">Add New Category</h6>
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form action="{{ route('categories.store') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="name">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Add</button>
