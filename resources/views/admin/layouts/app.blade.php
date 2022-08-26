@@ -38,7 +38,7 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
+                @include('admin.layouts.partials._message')
                 @yield('main-content')
 
             </div>
