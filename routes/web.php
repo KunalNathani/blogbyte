@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PostsController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,6 @@ Route::get('/dashboard', function () {
 
 /* ADMIN ROUTES */
 Route::resource('categories', CategoriesController::class);
+Route::resource('posts', PostsController::class);
 
 require __DIR__.'/auth.php';
