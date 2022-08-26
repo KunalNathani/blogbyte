@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="float-right mb-3">
-                <a href="#" class="btn btn-primary">Add New Category</a>
+                <a href="{{ route('categories.create') }}" class="btn btn-primary">Add New Category</a>
             </div>
         </div>
         <div class="col-md-12">
@@ -20,22 +20,16 @@
                             <th>Actions</th>
                         </thead>
                         <tbody>
+                            @foreach ($categories as $category)
                             <tr>
-                                <td>1</td>
-                                <td>Technology</td>
+                                <td>{{ $category->id }}</td>
+                                <td>{{ $category->name }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info btn-sm">Edit</a>
+                                <a href="{{ route('categories.destroy', $category->id) }}" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Coding</td>
-                                <td>
-                                    <a href="#" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
