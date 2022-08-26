@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Exception;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -37,9 +38,22 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create(['name' => $request->name]);
-        return redirect(route('categories.index'));
+        try{
+            Category::create(['name' => $request->name]);
+            return redirect(route('categories.index'))
+                        ->with([
+                            'status' => 'success',
+                            'message' => 'Category Added Successfully!'
+                        ]);
+        } catch(Exception $e) {
+            return redirect(route('categories.index'))
+                    ->with([
+                        'status' => 'danger',
+                        'message' => 'Category not added, Please try again!'
+                    ]);
+        }
     }
+
 
     /**
      * Display the specified resource.
