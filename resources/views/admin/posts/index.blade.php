@@ -23,32 +23,21 @@
                             <th>Actions</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img src="{{ asset('posts/1.jpg') }}" class="img-responsive" width="100px">
-                                </td>
-                                <td>Post One</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-                                <td>Technology</td>
-                                <td>
-                                    <a href="#" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>
-                                    <img src="{{ asset('posts/2.jpg') }}" class="img-responsive" width="100px">
-                                </td>
-                                <td>Post Two</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-                                <td>Technology</td>
-                                <td>
-                                    <a href="#" class="btn btn-info btn-sm">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
+                            @foreach($posts as $post)
+                                <tr>
+                                    <td>{{ $post->id }}</td>
+                                    <td>
+                                        <img src="{{ asset("frontend/assets/img/$post->image") }}" class="img-responsive" width="100px">
+                                    </td>
+                                    <td>{{ $post->title }}</td>
+                                    <td>{{ $post->excerpt }}</td>
+                                    <td>{{ $post->category->name }}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-info btn-sm">Edit</a>
+                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
