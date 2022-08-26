@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\FrontendController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
@@ -21,5 +22,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+/* ADMIN ROUTES */
+Route::resource('categories', CategoriesController::class);
 
 require __DIR__.'/auth.php';
