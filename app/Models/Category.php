@@ -12,4 +12,14 @@ class Category extends Model
     protected $fillable = [
         'name'
     ];
+
+    /* RELATIONSHIP METHODS */
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
+
+    /* ACCESSORS */
+    public function getPostsCountAttribute(){
+        return $this->posts()->count();
+    }
 }
