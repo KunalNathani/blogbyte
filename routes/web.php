@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('read/post/{post}', [FrontendController::class, 'show'])->name('single-post');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

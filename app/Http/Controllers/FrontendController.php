@@ -16,4 +16,11 @@ class FrontendController extends Controller
         $tags = Tag::all();
         return view('frontend.index', compact(['posts', 'categories', 'tags']));
     }
+
+    public function show(Post $post)
+    {
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('frontend.single-post', compact(['categories', 'tags', 'post']));
+    }
 }
